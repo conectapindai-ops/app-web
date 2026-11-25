@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Conecta Pindaí — Tudo de Pindaí em um só lugar</title>
+  <meta name="theme-color" content="#0B1120" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ==========================================================================
+       === ESTILOS PERSONALIZADOS E IDENTIDADE VISUAL (CONECTA PINDAÍ) ===
+       ========================================================================== */
+    :root {
+      --bg-main: #0B1120;
+      --bg-card: #151E32;
+      --bg-card-hover: #1B263F;
+      --primary: #4F6EF7;
+      --primary-hover: #3B82F6;
+      --accent-yellow: #FACC15;
+      --accent-coral: #F87171;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-main);
+      color: #F8FAFC;
+      margin: 0;
+      padding-bottom: 94px;
+      overflow-x: hidden;
+    }
+
+    /* Barra de rolagem azul estilizada do carrossel de categorias */
+    .cat-scroll::-webkit-scrollbar {
+      height: 5px;
+    }
+    .cat-scroll::-webkit-scrollbar-track {
+      background: #151E32;
+      border-radius: 999px;
+      margin: 0 36px;
+    }
+    .cat-scroll::-webkit-scrollbar-thumb {
+      background: #4F6EF7;
+      border-radius: 999px;
+    }
+
+    /* Brilho branco/azulado suave ao redor do botão Falar com o Conecta Pindaí */
+    .glow-white-soft {
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.22), 0 10px 25px -5px rgba(79, 110, 247, 0.5);
+    }
+
+    /* Gradiente do Banner Hero Principal */
+    .hero-gradient {
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14) 0%, transparent 45%),
+                  linear-gradient(180deg, #4F6EF7 0%, #3B82F6 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Padrão pontilhado sutil no Hero */
+    .hero-dots {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    /* Vidro fosco da barra de navegação inferior */
+    .bottom-nav-glass {
+      background: rgba(11, 17, 32, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#4F6EF7] selection:text-white">
+
+  <!-- CONTAINER PRINCIPAL CENTRALIZADO -->
+  <div class="max-w-2xl mx-auto px-4 pt-4 sm:pt-6">
+
+    <!-- ================= 1. CABEÇALHO (HEADER) ================= -->
+    <header class="flex items-center justify-between gap-2 mb-4">
+      <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+        <!-- Logo Conecta Pindaí (Pin azul/verde/amarelo com ícone de loja/rede) -->
+        <div class="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-2xl flex flex-col items-center justify-center shadow-md shrink-0 p-1">
+          <svg viewBox="0 0 64 64" class="w-7 h-7" fill="none">
+            <path d="M32 5C20.4 5 11 14.4 11 26C11 40.5 32 58 32 58C32 58 53 40.5 53 26C53 14.4 43.6 5 32 5Z" fill="#3B82F6"/>
+            <circle cx="32" cy="25" r="11" fill="#FACC15"/>
+            <circle cx="24" cy="21" r="4" fill="#22C55E"/>
+            <path d="M26 26H38M28 22H36L37 26H27L28 22Z" stroke="#0B1120" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-[7px] font-black tracking-tighter text-[#0B1120] leading-none">Conecta</span>
+        </div>
+
+        <span class="text-slate-300 font-extrabold text-sm">+</span>
+
+        <!-- Logo Rádio Pindaí FM 88.9 (Círculo azul/vermelho/amarelo com microfone) -->
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[#1E3A8A] to-[#0B1120] border-2 border-[#FACC15] flex flex-col items-center justify-center shadow-md shrink-0 relative overflow-hidden">
+          <span class="text-[6.5px] font-extrabold text-[#FACC15] leading-none">88.9 FM</span>
+          <div class="flex items-center gap-0.5 leading-none my-0.5">
+            <span class="text-[9.5px] font-black text-red-500 tracking-tighter">PINDAÍ</span>
+          </div>
+          <span class="text-[6px] font-bold text-white leading-none">🎙️ FM</span>
+        </div>
+
+        <!-- Título e Subtítulo -->
+        <div class="min-w-0 ml-0.5">
+          <h1 id="headerTitle" class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight truncate">
+            Conecta <span class="text-[#F87171]">Pindaí</span>
+          </h1>
+          <p id="headerSubtitle" class="text-xs text-slate-400 truncate">
+            Tudo de Pindaí em um só lugar
+          </p>
+        </div>
+      </div>
+
+      <!-- Selo Contador Dinâmico de Lojas -->
+      <div class="shrink-0 bg-[#151E32] border border-[#2A3B63] px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+        <span class="w-4 h-4 rounded-full border border-[#4F6EF7] text-[#4F6EF7] flex items-center justify-center text-[10px] font-bold">✓</span>
+        <span id="storeCountBadge" class="text-xs font-bold text-blue-300">13 lojas</span>
+      </div>
+    </header>
+
+    <!-- ================= 2. BOTÃO INSTALAR APLICATIVO ================= -->
+    <button onclick="openInstallModal()" class="w-full bg-[#4F6EF7] hover:bg-[#3B82F6] active:scale-[0.99] transition-all rounded-2xl py-3 px-4 flex items-center justify-center gap-3 shadow-lg shadow-[#4F6EF7]/25 mb-3.5 group">
+      <svg class="w-5 h-5 text-blue-100 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"/>
+      </svg>
+      <div class="text-left">
+        <div class="text-sm sm:text-[15px] font-extrabold tracking-wide text-white">
+          📲 INSTALAR O APLICATIVO
+        </div>
+        <div class="text-[11px] font-medium text-blue-100/90 leading-tight">
+          Grátis, em 10 segundos
+        </div>
+      </div>
+      <svg class="w-4 h-4 text-blue-200 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+
+    <!-- ================= 3. BARRA DE BUSCA EM TEMPO REAL ================= -->
+    <div class="relative mb-4">
+      <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+      <input
+        type="text"
+        id="searchInput"
+        oninput="handleSearch()"
+        placeholder="Busca por pizza, corte, remédio..."
+        class="w-full bg-[#151E32] border border-white/10 focus:border-[#4F6EF7] focus:ring-2 focus:ring-[#4F6EF7]/30 rounded-2xl py-3.5 pl-12 pr-10 text-sm text-white placeholder-slate-400 outline-none transition-all"
+      />
+      <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute inset-y-0 right-3 items-center text-slate-400 hover:text-white px-2">
+        ✕
+      </button>
+    </div>
+
+    <!-- ================= 4. CARROSSEL DE CATEGORIAS ================= -->
+    <section class="mb-4">
+      <div class="relative flex items-center">
+        <!-- Seta Esquerda '<' -->
+        <button onclick="scrollCategories(-180)" aria-label="Rolar esquerda" class="w-8 h-8 rounded-full bg-[#151E32] hover:bg-[#1E293B] border border-white/10 flex items-center justify-center text-slate-300 font-bold shrink-0 mr-1.5 shadow">
+          &lt;
+        </button>
+
+        <!-- Lista Horizontal de Categorias -->
+        <div id="categoryCarousel" class="cat-scroll flex items-center gap-2 overflow-x-auto pb-2.5 pt-0.5 scroll-smooth flex-1">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <!-- Seta Direita '>' -->
+        <button onclick="scrollCategories(180)" aria-label="Rolar direita" class="w-8 h-8 rounded-full bg-[#151E32] hover:bg-[#1E293B] border border-white/10 flex items-center justify-center text-slate-300 font-bold shrink-0 ml-1.5 shadow">
+          &gt;
+        </button>
+      </div>
+
+      <!-- Rodapé do Carrossel -->
+      <div class="flex items-center justify-between mt-1.5 px-1">
+        <span class="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+          <span class="text-[#F87171]">→</span> Arraste para ver mais <span class="text-[#4F6EF7]">→</span>
+        </span>
+        <button onclick="toggleAllCategories()" id="toggleCatBtn" class="bg-[#151E32] hover:bg-[#1E293B] border border-white/10 text-slate-200 text-xs font-semibold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition-colors">
+          <span>⇕</span> <span id="toggleCatText">Ver todas as categorias</span>
+        </button>
+      </div>
+
+      <!-- Grade Expandível com Todas as Categorias -->
+      <div id="allCategoriesGrid" class="hidden grid-cols-2 sm:grid-cols-3 gap-2 mt-3 p-3 bg-[#151E32] rounded-2xl border border-white/10 animate-fade">
+        <!-- Preenchido via JS -->
+      </div>
+    </section>
+
+    <!-- ================= 5. BOTÃO FALAR COM O CONECTA PINDAÍ ================= -->
+    <button onclick="contactCentral()" class="w-full bg-[#4F6EF7] hover:bg-[#3B82F6] active:scale-[0.99] transition-all rounded-2xl py-3.5 px-4 flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base text-white glow-white-soft mb-5">
+      <span>💬</span>
+      <span>Falar com o Conecta Pindaí</span>
+    </button>
+
+    <!-- ================= 6. BANNER HERO PRINCIPAL (RÁDIO PINDAÍ FM) ================= -->
+    <section id="heroBanner" class="hero-gradient rounded-3xl p-6 sm:p-8 text-center shadow-2xl border border-white/15 mb-7 relative">
+      <div class="hero-dots absolute inset-0 pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col items-center">
+        <!-- Duas Logos Grandes Lado a Lado -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4 mb-5">
+          <!-- Card Logo Conecta Pindaí -->
+          <div class="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center p-2">
+            <svg viewBox="0 0 64 64" class="w-12 h-12 sm:w-14 sm:h-14 mb-1" fill="none">
+              <path d="M32 5C20.4 5 11 14.4 11 26C11 40.5 32 58 32 58C32 58 53 40.5 53 26C53 14.4 43.6 5 32 5Z" fill="#3B82F6"/>
+              <circle cx="32" cy="25" r="11" fill="#FACC15"/>
+              <circle cx="24" cy="21" r="4.5" fill="#22C55E"/>
+              <path d="M26 26H38M28 22H36L37 26H27L28 22Z" stroke="#0B1120" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="text-[11px] sm:text-xs font-black tracking-tight leading-none">
+              <span class="text-[#3B82F6]">Conecta</span> <span class="text-orange-500">Pindaí</span>
+            </div>
+          </div>
+
+          <span class="text-2xl sm:text-3xl font-black text-[#FACC15] drop-shadow">+</span>
+
+          <!-- Card Logo Rádio Pindaí FM 88.9 -->
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#1E3A8A] via-[#0F172A] to-[#090D16] border-[3px] border-[#FACC15] shadow-xl flex flex-col items-center justify-center p-2 relative">
+            <span class="bg-[#FACC15] text-[#0B1120] text-[9px] font-black px-2 py-0.5 rounded-full mb-0.5">88.9 FM</span>
+            <span class="text-lg sm:text-xl font-black text-red-500 tracking-tighter leading-none drop-shadow">PINDAÍ</span>
+            <span class="text-[10px] font-extrabold text-amber-300 tracking-widest mt-0.5 flex items-center gap-1">🎙️ FM</span>
+            <span class="text-[7px] text-emerald-400 font-semibold mt-0.5">Aqui você é tudo de bom.</span>
+          </div>
+        </div>
+
+        <!-- Texto Amarelo Caixa Alta -->
+        <p class="text-[11px] sm:text-xs font-extrabold tracking-[0.16em] text-[#FACC15] uppercase mb-3">
+          UM PRODUTO DA RÁDIO PINDAÍ FM
+        </p>
+
+        <!-- Pílula Pindaí • Bahia -->
+        <div class="inline-flex items-center gap-1.5 bg-[#0B1120]/45 backdrop-blur-sm border border-white/15 px-3.5 py-1 rounded-full text-xs font-semibold text-white mb-4">
+          <span>📍</span>
+          <span id="heroCityBadge">Pindaí • Bahia</span>
+        </div>
+
+        <!-- Título Principal -->
+        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-3">
+          Precisou?<br />
+          Tá no <span class="text-[#FACC15]">Conecta Pindaí!</span>
+        </h2>
+
+        <!-- Subtítulo -->
+        <p class="text-xs sm:text-sm text-blue-100/95 max-w-md leading-relaxed">
+          A rádio que você confia, agora conectando você com todo o comércio de Pindaí.
+          <strong class="text-white block mt-0.5">Aqui você é tudo de bom.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 7. VITRINE DE LOJAS E PARCEIROS ================= -->
+    <section id="storesSection">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 id="sectionHeading" class="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
+            <span>🏪 Lojas e Serviços em Pindaí</span>
+          </h3>
+          <p id="sectionSubheading" class="text-xs text-slate-400">
+            Horário comercial padrão: 08:00 às 18:00 • Toque para ver preços e avaliar
+          </p>
+        </div>
+        <span id="filteredCount" class="text-xs font-semibold text-slate-400 bg-[#151E32] px-2.5 py-1 rounded-lg border border-white/5 shrink-0">
+          13 encontrados
+        </span>
+      </div>
+
+      <!-- Grid Responsivo de Cards -->
+      <div id="storesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Cards renderizados dinamicamente via JavaScript -->
+      </div>
+
+      <!-- Estado Vazio -->
+      <div id="emptyState" class="hidden text-center py-12 px-4 bg-[#151E32] rounded-3xl border border-white/10 mt-2">
+        <div class="text-4xl mb-3">🔍</div>
+        <h4 class="text-base font-bold text-white mb-1">Nenhum resultado encontrado</h4>
+        <p class="text-xs text-slate-400 mb-4">Tente buscar por outro termo ou limpe os filtros.</p>
+        <button onclick="resetFilters()" class="bg-[#4F6EF7] hover:bg-[#3B82F6] text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+          Mostrar todas as lojas
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ================= 8. BARRA DE NAVEGAÇÃO INFERIOR FIXA (GLASSMORPHISM) ================= -->
+  <nav class="bottom-nav-glass fixed bottom-0 inset-x-0 z-40">
+    <div class="max-w-2xl mx-auto grid grid-cols-4 h-[74px] px-2">
+      <!-- Aba 1: Início -->
+      <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center justify-center gap-1 text-[#4F6EF7] font-bold transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <span class="text-[11px]">Início</span>
+      </button>
+
+      <!-- Aba 2: Favoritos -->
+      <button onclick="switchTab('favorites')" id="nav-favorites" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 font-medium transition-colors relative">
+        <div class="relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span id="favBadgeCount" class="hidden absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full items-center justify-center">0</span>
+        </div>
+        <span class="text-[11px]">Favoritos</span>
+      </button>
+
+      <!-- Aba 3: Como funciona -->
+      <button onclick="openHowItWorksModal()" id="nav-how" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 font-medium transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="text-[11px]">Como funciona</span>
+      </button>
+
+      <!-- Aba 4: Sou lojista / Painel -->
+      <button onclick="openAdminAccess()" id="nav-admin" class="nav-btn flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 font-medium transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18l-1.5 6H4.5L3 3zm1.5 6v10a1 1 0 001 1h13a1 1 0 001-1V9M9 20v-6h6v6"/>
+        </svg>
+        <span class="text-[11px]">Sou lojista</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================= 9. MODAIS DO SISTEMA ================= -->
+
+  <!-- MODAL A: DETALHES DA LOJA, PREÇOS E AVALIAÇÃO 0 A 5 ESTRELAS -->
+  <div id="storeCatalogModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-[#151E32] border border-white/10 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[92vh] flex flex-col overflow-hidden animate-fade">
+      <div class="relative h-44 bg-slate-800 shrink-0">
+        <img id="catalogCover" src="" alt="Capa da Loja" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#151E32] via-[#151E32]/40 to-transparent"></div>
+
+        <!-- Botão Favoritar no Modal -->
+        <button id="catalogFavBtn" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-transform active:scale-90" aria-label="Favoritar">
+          🤍
+        </button>
+
+        <!-- Fechar Modal -->
+        <button onclick="closeModal('storeCatalogModal')" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center font-bold hover:bg-black">
+          ✕
+        </button>
+
+        <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 mb-1">
+              <span id="catalogCatBadge" class="inline-block text-[10px] font-bold uppercase tracking-wider bg-[#4F6EF7] text-white px-2.5 py-0.5 rounded-full">Categoria</span>
+              <span id="catalogRatingBadge" class="inline-block text-[11px] font-extrabold bg-[#0B1120]/85 text-[#FACC15] px-2.5 py-0.5 rounded-full border border-[#FACC15]/30">★ 5.0 (1)</span>
+            </div>
+            <h3 id="catalogStoreName" class="text-xl font-black text-white leading-tight truncate">Nome da Loja</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1">
+        <!-- Status Dinâmico 08:00 às 18:00 -->
+        <div id="catalogStatusBanner" class="px-3.5 py-2.5 rounded-2xl text-xs font-bold flex items-center justify-between border">
+          <!-- Preenchido via JS -->
+        </div>
+
+        <p id="catalogDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs bg-[#0B1120] p-3 rounded-2xl border border-white/5">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span>📍</span> <span id="catalogAddress">Endereço</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span>⏰</span> <span id="catalogHours">08:00 às 18:00</span>
+          </div>
+        </div>
+
+        <!-- AVALIAÇÃO INTERATIVA 0 A 5 ESTRELAS (SEM COMENTÁRIOS) -->
+        <div class="bg-[#0B1120] border border-[#FACC15]/25 rounded-2xl p-3.5 text-center">
+          <div class="text-xs font-extrabold text-white mb-0.5">Avalie esta loja (0 a 5 estrelas)</div>
+          <div id="ratingFeedbackText" class="text-[11px] text-slate-400 mb-2.5">Toque em uma nota abaixo para avaliar</div>
+
+          <div class="flex items-center justify-center gap-1.5 sm:gap-2">
+            <button type="button" onclick="rateStore(0)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-slate-300 transition-all active:scale-95">
+              0 ★
+            </button>
+            <button type="button" onclick="rateStore(1)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-[#FACC15] transition-all active:scale-95">
+              1 ★
+            </button>
+            <button type="button" onclick="rateStore(2)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-[#FACC15] transition-all active:scale-95">
+              2 ★
+            </button>
+            <button type="button" onclick="rateStore(3)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-[#FACC15] transition-all active:scale-95">
+              3 ★
+            </button>
+            <button type="button" onclick="rateStore(4)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-[#FACC15] transition-all active:scale-95">
+              4 ★
+            </button>
+            <button type="button" onclick="rateStore(5)" class="rating-opt px-2.5 py-2 rounded-xl bg-[#151E32] hover:bg-[#FACC15] hover:text-[#0B1120] border border-white/10 text-xs font-black text-[#FACC15] transition-all active:scale-95">
+              5 ★
+            </button>
+          </div>
+        </div>
+
+        <!-- TABELA DE PREÇOS E OFERTAS -->
+        <div>
+          <h4 class="text-sm font-extrabold text-[#FACC15] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+            <span>🏷️ Produtos, Serviços e Preços</span>
+          </h4>
+          <div id="catalogProductsList" class="space-y-2.5">
+            <!-- Lista de itens e preços -->
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-[#0B1120] border-t border-white/10 flex gap-2.5 shrink-0">
+        <button id="catalogWhatsappBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg">
+          <span>💬 Chamar no WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL B: INSTALAR APLICATIVO -->
+  <div id="installModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#151E32] border border-white/10 w-full max-w-md rounded-3xl p-6 animate-fade">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-black text-white flex items-center gap-2">
+          <span>📲 Instalar Conecta Pindaí</span>
+        </h3>
+        <button onclick="closeModal('installModal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300 hover:text-white">✕</button>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+        Tenha todas as lojas, serviços e telefones úteis de <strong>Pindaí - BA</strong> direto na tela inicial do seu celular, grátis e em 10 segundos!
+      </p>
+      <div class="space-y-3 text-xs bg-[#0B1120] p-4 rounded-2xl border border-white/5 mb-5">
+        <div>
+          <strong class="text-[#FACC15] block mb-0.5">🤖 No Android (Chrome):</strong>
+          <span class="text-slate-300">Toque nos <strong>3 pontinhos (⋮)</strong> no canto superior direito e selecione <strong>"Adicionar à tela inicial"</strong> ou <strong>"Instalar aplicativo"</strong>.</span>
+        </div>
+        <div class="border-t border-white/10 pt-2.5">
+          <strong class="text-[#4F6EF7] block mb-0.5">🍎 No iPhone (Safari):</strong>
+          <span class="text-slate-300">Toque no ícone de <strong>Compartilhar (□↑)</strong> na barra inferior e escolha <strong>"Adicionar à Tela de Início"</strong>.</span>
+        </div>
+      </div>
+      <button onclick="closeModal('installModal')" class="w-full bg-[#4F6EF7] hover:bg-[#3B82F6] text-white font-bold text-sm py-3 rounded-xl">
+        Entendi, obrigado!
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL C: COMO FUNCIONA -->
+  <div id="howItWorksModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#151E32] border border-white/10 w-full max-w-md rounded-3xl p-6 animate-fade">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-black text-white">ℹ️ Como funciona o Conecta Pindaí</h3>
+        <button onclick="closeModal('howItWorksModal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <div class="space-y-3 text-xs sm:text-sm text-slate-300 mb-5">
+        <div class="bg-[#0B1120] p-3.5 rounded-2xl border border-white/5">
+          <strong class="text-white block mb-1">1. Busque o que precisa</strong>
+          Encontre pizzarias, farmácias, salões, mercados e serviços de Pindaí pelo nome ou pelo produto desejado.
+        </div>
+        <div class="bg-[#0B1120] p-3.5 rounded-2xl border border-white/5">
+          <strong class="text-white block mb-1">2. Horário do Sudoeste Baiano</strong>
+          Acompanhe em tempo real quem está aberto no horário comercial (08:00 às 18:00), avalie de 0 a 5 estrelas e confira os preços.
+        </div>
+        <div class="bg-[#0B1120] p-3.5 rounded-2xl border border-white/5">
+          <strong class="text-white block mb-1">3. Fale direto no WhatsApp</strong>
+          Sem intermediários e sem taxas: o pedido vai direto para o WhatsApp da loja.
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal('howItWorksModal'); contactCentral();" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3 rounded-xl">
+          Anunciar minha loja
+        </button>
+        <button onclick="closeModal('howItWorksModal')" class="px-4 bg-white/10 text-white font-bold text-xs py-3 rounded-xl">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL D: LOGIN DO PAINEL ADMINISTRATIVO -->
+  <div id="adminLoginModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#151E32] border border-white/10 w-full max-w-sm rounded-3xl p-6 animate-fade text-center">
+      <div class="w-12 h-12 rounded-2xl bg-[#4F6EF7]/20 text-[#4F6EF7] flex items-center justify-center mx-auto mb-3 text-2xl">
+        🔐
+      </div>
+      <h3 class="text-lg font-black text-white mb-1">Painel do Administrador</h3>
+      <p class="text-xs text-slate-400 mb-4">
+        Gerencie parceiros, fotos, preços, horários e avaliações do Conecta Pindaí.
+      </p>
+      <input
+        type="password"
+        id="adminPasswordInput"
+        onkeydown="if(event.key==='Enter') verifyAdminLogin()"
+        placeholder="Digite a senha do painel"
+        class="w-full bg-[#0B1120] border border-white/15 focus:border-[#4F6EF7] rounded-xl py-3 px-4 text-center text-white text-sm mb-2 outline-none"
+      />
+      <p class="text-[11px] text-amber-400/90 mb-4">
+        Senha padrão inicial: <strong>1234</strong>
+      </p>
+      <div class="flex gap-2">
+        <button onclick="closeModal('adminLoginModal')" class="flex-1 bg-white/10 hover:bg-white/15 text-slate-300 font-bold text-xs py-3 rounded-xl">
+          Cancelar
+        </button>
+        <button onclick="verifyAdminLogin()" class="flex-1 bg-[#4F6EF7] hover:bg-[#3B82F6] text-white font-bold text-xs py-3 rounded-xl">
+          Entrar no Painel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 10. PAINEL ADMINISTRATIVO COMPLETO (TELA CHEIA) ================= -->
+  <div id="adminPanelModal" class="hidden fixed inset-0 z-50 bg-[#0B1120] overflow-y-auto">
+    <div class="max-w-4xl mx-auto px-4 py-5 pb-20">
+      <!-- Topo do Painel -->
+      <div class="flex flex-wrap items-center justify-between gap-3 bg-[#151E32] p-4 rounded-2xl border border-white/10 mb-5">
+        <div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#FACC15]">Modo Edição Visual</span>
+          <h2 class="text-lg sm:text-xl font-black text-white">Painel Conecta Pindaí</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="downloadUpdatedHTML()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 shadow-lg">
+            <span>💾 Baixar Site Atualizado (.html)</span>
+          </button>
+          <button onclick="closeAdminPanel()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl">
+            ✕ Sair
+          </button>
+        </div>
+      </div>
+
+      <!-- Aviso sobre Publicação -->
+      <div class="bg-blue-950/50 border border-[#4F6EF7]/40 rounded-2xl p-3.5 mb-5 text-xs text-blue-100 flex items-start gap-2.5">
+        <span class="text-base">💡</span>
+        <div>
+          <strong>Como salvar definitivamente no seu site:</strong> Tudo que você editar aqui fica salvo automaticamente no navegador. Ao terminar de cadastrar ou editar lojas, fotos e preços, clique no botão verde <strong>"💾 Baixar Site Atualizado (.html)"</strong> acima e envie o novo <code>index.html</code> para sua hospedagem!
+        </div>
+      </div>
+
+      <!-- Abas Internas do Painel Admin -->
+      <div class="flex gap-2 mb-5 overflow-x-auto pb-1">
+        <button onclick="switchAdminSubtab('partners')" id="adminTab-partners" class="bg-[#4F6EF7] text-white text-xs font-bold px-4 py-2.5 rounded-xl shrink-0">
+          🏪 Parceiros, Preços e Notas
+        </button>
+        <button onclick="switchAdminSubtab('settings')" id="adminTab-settings" class="bg-[#151E32] text-slate-300 text-xs font-bold px-4 py-2.5 rounded-xl shrink-0">
+          ⚙️ Configurações Gerais
+        </button>
+        <button onclick="switchAdminSubtab('backup')" id="adminTab-backup" class="bg-[#151E32] text-slate-300 text-xs font-bold px-4 py-2.5 rounded-xl shrink-0">
+          📦 Backup JSON / Restaurar
+        </button>
+      </div>
+
+      <!-- SUB-ABA 1: GERENCIAR PARCEIROS E PREÇOS -->
+      <div id="adminSub-partners" class="space-y-5">
+        <div class="bg-[#151E32] border border-white/10 rounded-3xl p-4 sm:p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 id="formPartnerTitle" class="text-base font-extrabold text-white">➕ Cadastrar Novo Parceiro</h3>
+            <button id="cancelEditPartnerBtn" onclick="resetPartnerForm()" class="hidden text-xs text-rose-400 hover:underline font-semibold">
+              Cancelar edição
+            </button>
+          </div>
+
+          <input type="hidden" id="editPartnerId" value="" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Nome da Loja / Empresa *</label>
+              <input type="text" id="pName" placeholder="Ex: Pizzaria Sabor de Pindaí" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Categoria *</label>
+              <select id="pCategory" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]">
+                <!-- Opções via JS -->
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp (com DDD) *</label>
+              <input type="text" id="pWhatsapp" placeholder="Ex: 5577991571909" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Horário (Padrão Sudoeste: 08:00 às 18:00)</label>
+              <input type="text" id="pHours" value="08:00 às 18:00" placeholder="08:00 às 18:00" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Nota Média Inicial (0 a 5)</label>
+              <input type="number" step="0.1" min="0" max="5" id="pRating" value="5.0" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-[#FACC15] font-bold outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Quantidade de Votos</label>
+              <input type="number" min="1" id="pVotes" value="1" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Endereço / Referência em Pindaí</label>
+              <input type="text" id="pAddress" placeholder="Ex: Praça da Matriz, Centro - Pindaí/BA" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]" />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Descrição Curta</label>
+              <textarea id="pDesc" rows="2" placeholder="Fale brevemente sobre os produtos ou serviços da loja..." class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-[#4F6EF7]"></textarea>
+            </div>
+
+            <!-- Upload de Imagem com Compressão Automática -->
+            <div class="sm:col-span-2 bg-[#0B1120] p-3.5 rounded-2xl border border-white/10">
+              <label class="block text-xs font-bold text-[#FACC15] mb-2">🖼️ Foto / Banner da Loja (Compressão automática máx. 400px)</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                <div>
+                  <label class="flex items-center justify-center gap-2 bg-[#151E32] hover:bg-[#1E293B] border border-dashed border-[#4F6EF7] rounded-xl py-2.5 px-3 text-xs font-semibold text-blue-300 cursor-pointer">
+                    <span>📁 Escolher foto do celular/PC</span>
+                    <input type="file" id="pImageFile" accept="image/*" onchange="handlePartnerImageUpload(event)" class="hidden" />
+                  </label>
+                </div>
+                <div>
+                  <input type="text" id="pImageUrl" oninput="previewPartnerImage(this.value)" placeholder="Ou cole o link (URL) da imagem..." class="w-full bg-[#151E32] border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+                </div>
+              </div>
+              <div id="pImagePreviewBox" class="hidden mt-3 flex items-center gap-3">
+                <img id="pImagePreview" src="" alt="Preview" class="w-20 h-14 object-cover rounded-lg border border-white/20" />
+                <span class="text-[11px] text-emerald-400">✓ Imagem pronta e otimizada!</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <label class="flex items-center gap-2 text-xs font-semibold text-amber-300 cursor-pointer">
+                <input type="checkbox" id="pFeatured" class="w-4 h-4 accent-[#FACC15]" />
+                <span>⭐ Destaque no Topo</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Gerenciador de Produtos / Serviços e Preços -->
+          <div class="bg-[#0B1120] p-4 rounded-2xl border border-white/10 mb-4">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#FACC15]">
+                🏷️ Produtos / Serviços e Preços deste Parceiro
+              </h4>
+              <button type="button" onclick="addProductRow()" class="bg-[#4F6EF7] hover:bg-[#3B82F6] text-white text-xs font-bold px-3 py-1.5 rounded-lg">
+                + Adicionar Item/Preço
+              </button>
+            </div>
+            <div id="partnerProductsEditor" class="space-y-2.5">
+              <!-- Linhas de produtos -->
+            </div>
+          </div>
+
+          <button onclick="savePartner()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 rounded-2xl shadow-lg">
+            💾 Salvar Parceiro e Preços
+          </button>
+        </div>
+
+        <!-- Lista de Parceiros Cadastrados -->
+        <div class="bg-[#151E32] border border-white/10 rounded-3xl p-4 sm:p-6">
+          <h3 class="text-base font-extrabold text-white mb-4">📋 Lojas Cadastradas (<span id="adminStoreTotal">0</span>)</h3>
+          <div id="adminStoresList" class="space-y-3">
+            <!-- Lista via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-ABA 2: CONFIGURAÇÕES GERAIS -->
+      <div id="adminSub-settings" class="hidden bg-[#151E32] border border-white/10 rounded-3xl p-5 space-y-4">
+        <h3 class="text-base font-extrabold text-white">⚙️ Configurações do Conecta Pindaí</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nome do Portal</label>
+            <input type="text" id="cfgTitle" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Subtítulo do Cabeçalho</label>
+            <input type="text" id="cfgSubtitle" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Cidade / Estado (Banner)</label>
+            <input type="text" id="cfgCity" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp Central (Botão Azul)</label>
+            <input type="text" id="cfgWhatsapp" placeholder="5577991571909" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nova Senha do Painel Admin</label>
+            <input type="text" id="cfgPassword" class="w-full bg-[#0B1120] border border-white/10 rounded-xl px-3.5 py-2.5 text-sm text-white" />
+          </div>
+        </div>
+        <button onclick="saveSettings()" class="bg-[#4F6EF7] hover:bg-[#3B82F6] text-white font-bold text-sm px-6 py-3 rounded-xl">
+          Salvar Configurações
+        </button>
+      </div>
+
+      <!-- SUB-ABA 3: BACKUP JSON / RESTAURAR -->
+      <div id="adminSub-backup" class="hidden bg-[#151E32] border border-white/10 rounded-3xl p-5 space-y-4">
+        <h3 class="text-base font-extrabold text-white">📦 Backup e Restauração de Dados</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Exporte um arquivo de segurança com todas as suas lojas, fotos, avaliações e preços, ou restaure um backup anterior.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button onclick="exportJSON()" class="bg-[#4F6EF7] hover:bg-[#3B82F6] text-white text-xs font-bold px-4 py-3 rounded-xl">
+            📥 Exportar Backup (.json)
+          </button>
+          <label class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-3 rounded-xl cursor-pointer">
+            📤 Importar Backup (.json)
+            <input type="file" accept=".json" onchange="importJSON(event)" class="hidden" />
+          </label>
+          <button onclick="resetToFactoryDefaults()" class="bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 text-xs font-bold px-4 py-3 rounded-xl">
+            🔄 Restaurar Dados Originais
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICAÇÃO -->
+  <div id="toastBox" class="hidden fixed top-5 left-1/2 -translate-x-1/2 z-[60] bg-[#1E293B] border border-[#4F6EF7] text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-2xl items-center gap-2 animate-fade">
+    <span id="toastIcon">✅</span>
+    <span id="toastMsg">Mensagem</span>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       === CATEGORIAS OFICIAIS ===
+       ========================================================================== */
+    const CATEGORIES = [
+      { id: 'Todos', label: 'Todos', icon: '🏪' },
+      { id: 'Comida', label: 'Comida', icon: '🍴' },
+      { id: 'Beleza', label: 'Beleza', icon: '✂️' },
+      { id: 'Farmácia', label: 'Farmácia', icon: '💊' },
+      { id: 'Mercado', label: 'Mercado', icon: '🛒' },
+      { id: 'Moda', label: 'Moda', icon: '👕' },
+      { id: 'Serviços', label: 'Serviços', icon: '🛠️' },
+      { id: 'Automotivo', label: 'Automotivo', icon: '🚗' },
+      { id: 'Saúde', label: 'Saúde', icon: '🩺' }
+    ];
+
+    /* Helper para gerar ilustrações SVG leves embutidas (sem dependência externa) */
+    function makeStoreSVG(bg1, bg2, emoji, label) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="${bg1}"/>
+            <stop offset="100%" stop-color="${bg2}"/>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="320" fill="url(#g)"/>
+        <circle cx="520" cy="60" r="95" fill="rgba(255,255,255,0.07)"/>
+        <circle cx="80" cy="270" r="110" fill="rgba(255,255,255,0.05)"/>
+        <text x="300" y="148" font-size="76" text-anchor="middle" dominant-baseline="middle">${emoji}</text>
+        <text x="300" y="222" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="22" fill="rgba(255,255,255,0.92)" text-anchor="middle">${label}</text>
+      </svg>`;
+      return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+    }
+
+    /* DEFAULT_DATA_START */
+    const INITIAL_DATA = {
+      settings: {
+        title: "Conecta Pindaí",
+        subtitle: "Tudo de Pindaí em um só lugar",
+        city: "Pindaí • Bahia",
+        whatsapp: "5577991571909",
+        adminPassword: "1234"
+      },
+      stores: [
+        {
+          id: 1,
+          name: "Pizzaria Sabor de Pindaí",
+          category: "Comida",
+          whatsapp: "5577991571909",
+          address: "Praça da Matriz, Centro - Pindaí/BA",
+          hours: "08:00 às 18:00",
+          description: "Pizzas artesanais assadas na hora, esfihas e encomendas especiais com entrega rápida em Pindaí.",
+          image: makeStoreSVG("#7C2D12", "#EA580C", "🍕", "PIZZARIA SABOR DE PINDAÍ"),
+          featured: true,
+          ratingSum: 68.6,
+          ratingCount: 14,
+          products: [
+            { name: "Pizza Grande Calabresa", price: "R$ 45,00", desc: "8 fatias + borda recheada" },
+            { name: "Pizza Família Moda da Casa", price: "R$ 58,00", desc: "12 fatias + refrigerante 2L" },
+            { name: "Esfiha Aberta Carne/Queijo", price: "R$ 6,50", desc: "Unidade assada na hora" }
+          ]
+        },
+        {
+          id: 2,
+          name: "Barbearia Estilo Baiano",
+          category: "Beleza",
+          whatsapp: "5577991571909",
+          address: "Rua Rui Barbosa, nº 88 - Centro, Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Corte degradê, barba terapia com toalha quente e ambiente climatizado no coração de Pindaí.",
+          image: makeStoreSVG("#1E3A8A", "#2563EB", "💈", "BARBEARIA ESTILO BAIANO"),
+          featured: true,
+          ratingSum: 54.0,
+          ratingCount: 11,
+          products: [
+            { name: "Corte Masculino Degradê", price: "R$ 25,00", desc: "Acabamento na navalha" },
+            { name: "Combo Corte + Barba", price: "R$ 40,00", desc: "Inclui hidratação" },
+            { name: "Sobrancelha na Navalha", price: "R$ 10,00", desc: "Design masculino" }
+          ]
+        },
+        {
+          id: 3,
+          name: "Drogaria Central Pindaí",
+          category: "Farmácia",
+          whatsapp: "5577991571909",
+          address: "Av. Principal, nº 142 - Centro, Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Medicamentos genéricos com super desconto, perfumaria, aferição de pressão e disk entrega.",
+          image: makeStoreSVG("#065F46", "#10B981", "💊", "DROGARIA CENTRAL PINDAÍ"),
+          featured: true,
+          ratingSum: 49.0,
+          ratingCount: 10,
+          products: [
+            { name: "Dipirona Sódica 500mg (10 comp)", price: "R$ 4,90", desc: "Analgésico e antitérmico" },
+            { name: "Protetor Solar FPS 60", price: "R$ 49,90", desc: "Toque seco 200ml" },
+            { name: "Vitamina C + Zinco (30 comp)", price: "R$ 24,50", desc: "Imunidade diária" }
+          ]
+        },
+        {
+          id: 4,
+          name: "Supermercado Bom Preço",
+          category: "Mercado",
+          whatsapp: "5577991571909",
+          address: "Av. Governador Waldir Pires - Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Açougue selecionado, hortifruti fresquinho e entrega gratuita em toda a cidade.",
+          image: makeStoreSVG("#1E40AF", "#4F6EF7", "🛒", "SUPERMERCADO BOM PREÇO"),
+          featured: false,
+          ratingSum: 43.2,
+          ratingCount: 9,
+          products: [
+            { name: "Arroz Branco Tipo 1 (5kg)", price: "R$ 26,90", desc: "Oferta da semana" },
+            { name: "Contra Filé Bovino (Kg)", price: "R$ 36,90", desc: "Carne fresca selecionada" },
+            { name: "Fardo Cerveja Lata (12 un)", price: "R$ 34,90", desc: "350ml" }
+          ]
+        },
+        {
+          id: 5,
+          name: "Espetinho & Lanches da Praça",
+          category: "Comida",
+          whatsapp: "5577991571909",
+          address: "Praça do Mercado - Pindaí/BA",
+          hours: "08:00 às 18:00",
+          description: "Espetinhos na brasa, salgados fritos na hora, hambúrguer artesanal e sucos naturais.",
+          image: makeStoreSVG("#991B1B", "#DC2626", "🍢", "ESPETINHO & LANCHES DA PRAÇA"),
+          featured: false,
+          ratingSum: 38.4,
+          ratingCount: 8,
+          products: [
+            { name: "Espetinho Carne / Frango", price: "R$ 8,00", desc: "Acompanha farofa e vinagrete" },
+            { name: "X-Bacon Artesanal", price: "R$ 22,00", desc: "Blend 150g + cheddar" }
+          ]
+        },
+        {
+          id: 6,
+          name: "Salão Bella Mulher",
+          category: "Beleza",
+          whatsapp: "5577991571909",
+          address: "Rua Castro Alves, nº 55 - Centro, Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Escova progressiva, hidratação capilar, manicure, pedicure e design de sobrancelhas.",
+          image: makeStoreSVG("#831843", "#DB2777", "💇‍♀️", "SALÃO BELLA MULHER"),
+          featured: false,
+          ratingSum: 35.0,
+          ratingCount: 7,
+          products: [
+            { name: "Pé e Mão Completo", price: "R$ 35,00", desc: "Esmaltação tradicional ou gel" },
+            { name: "Escova + Hidratação Profunda", price: "R$ 55,00", desc: "Todos os tamanhos de cabelo" }
+          ]
+        },
+        {
+          id: 7,
+          name: "Boutique Moda & Estilo",
+          category: "Moda",
+          whatsapp: "5577991571909",
+          address: "Rua do Comércio, nº 22 - Centro, Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Moda feminina, masculina e infantil com novidades toda semana e parcelamento facilitado.",
+          image: makeStoreSVG("#5B21B6", "#7C3AED", "👗", "BOUTIQUE MODA & ESTILO"),
+          featured: false,
+          ratingSum: 29.4,
+          ratingCount: 6,
+          products: [
+            { name: "Vestido Midi Estampado", price: "R$ 79,90", desc: "Tamanhos P ao GG" },
+            { name: "Camiseta Algodão Premium", price: "R$ 49,90", desc: "Diversas cores" }
+          ]
+        },
+        {
+          id: 8,
+          name: "Oficina Auto Center Pindaí",
+          category: "Automotivo",
+          whatsapp: "5577991571909",
+          address: "Saída para Guanambi - Pindaí/BA",
+          hours: "08:00 às 18:00",
+          description: "Mecânica geral, troca de óleo, alinhamento, balanceamento, suspensão e baterias.",
+          image: makeStoreSVG("#1E293B", "#475569", "🔧", "OFICINA AUTO CENTER PINDAÍ"),
+          featured: false,
+          ratingSum: 44.1,
+          ratingCount: 9,
+          products: [
+            { name: "Troca de Óleo + Filtro", price: "R$ 120,00", desc: "Lubrificante sintético" },
+            { name: "Alinhamento + Balanceamento", price: "R$ 70,00", desc: "Carros de passeio" }
+          ]
+        },
+        {
+          id: 9,
+          name: "Padaria Pão Quente",
+          category: "Comida",
+          whatsapp: "5577991571909",
+          address: "Av. Principal, nº 310 - Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Pão francês quentinho, bolos caseiros, biscoitos tradicionais do sertão e salgados assados.",
+          image: makeStoreSVG("#92400E", "#D97706", "🥖", "PADARIA PÃO QUENTE"),
+          featured: false,
+          ratingSum: 48.0,
+          ratingCount: 10,
+          products: [
+            { name: "Bolo de Milho Cremoso Inteiro", price: "R$ 18,00", desc: "Receita caseira" },
+            { name: "Cento de Salgados Variados", price: "R$ 55,00", desc: "Para festas e eventos" }
+          ]
+        },
+        {
+          id: 10,
+          name: "Açaí & Sorveteria Tropical",
+          category: "Comida",
+          whatsapp: "5577991571909",
+          address: "Praça da Matriz - Centro, Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Açaí cremoso batido na hora, sorvetes artesanais e picolés de frutas regionais.",
+          image: makeStoreSVG("#4C1D95", "#9333EA", "🍨", "AÇAÍ & SORVETERIA TROPICAL"),
+          featured: false,
+          ratingSum: 39.2,
+          ratingCount: 8,
+          products: [
+            { name: "Copo Açaí 300ml Completo", price: "R$ 12,00", desc: "4 acompanhamentos grátis" },
+            { name: "Barca de Açaí 1 Litro", price: "R$ 32,00", desc: "Ideal para dividir" }
+          ]
+        },
+        {
+          id: 11,
+          name: "Clínica Odontológica Sorriso",
+          category: "Saúde",
+          whatsapp: "5577991571909",
+          address: "Rua Getúlio Vargas, nº 40 - Centro",
+          hours: "08:00 às 18:00",
+          description: "Limpeza, restauração, clareamento dental, aparelho ortodôntico e atendimento infantil.",
+          image: makeStoreSVG("#0E7490", "#06B6D4", "🦷", "CLÍNICA ODONTOLÓGICA SORRISO"),
+          featured: false,
+          ratingSum: 35.0,
+          ratingCount: 7,
+          products: [
+            { name: "Avaliação + Limpeza Completa", price: "R$ 90,00", desc: "Profilaxia com ultrassom" },
+            { name: "Clareamento Dental", price: "R$ 250,00", desc: "Sessão clínica" }
+          ]
+        },
+        {
+          id: 12,
+          name: "Papelaria & Informática Pindaí",
+          category: "Serviços",
+          whatsapp: "5577991571909",
+          address: "Av. Principal, Loja 04 - Centro",
+          hours: "08:00 às 18:00",
+          description: "Material escolar, xerox, impressão colorida, plastificação, formatação e acessórios para PC.",
+          image: makeStoreSVG("#1D4ED8", "#38BDF8", "🖨️", "PAPELARIA & INFORMÁTICA"),
+          featured: false,
+          ratingSum: 28.8,
+          ratingCount: 6,
+          products: [
+            { name: "Impressão Colorida / Xerox", price: "R$ 1,50", desc: "Folha A4 alta qualidade" },
+            { name: "Formatação Completa de Notebook", price: "R$ 70,00", desc: "Com backup de arquivos" }
+          ]
+        },
+        {
+          id: 13,
+          name: "Agropecuária Sertão Forte",
+          category: "Serviços",
+          whatsapp: "5577991571909",
+          address: "Av. do Comércio, nº 210 - Pindaí",
+          hours: "08:00 às 18:00",
+          description: "Rações para cães, gatos e animais de fazenda, medicamentos veterinários e ferramentas agrícolas.",
+          image: makeStoreSVG("#14532D", "#16A34A", "🌱", "AGROPECUÁRIA SERTÃO FORTE"),
+          featured: false,
+          ratingSum: 44.1,
+          ratingCount: 9,
+          products: [
+            { name: "Ração Cães Adultos 15kg", price: "R$ 89,90", desc: "Sabor carne e vegetais" },
+            { name: "Sal Mineral Bovino 30kg", price: "R$ 74,00", desc: "Pronto para uso" }
+          ]
+        }
+      ]
+    };
+    /* DEFAULT_DATA_END */
+
+    /* ==========================================================================
+       === ESTADO GLOBAL E PERSISTÊNCIA ===
+       ========================================================================== */
+    const STORAGE_KEY = 'conecta_pindai_db_v2';
+    const FAV_KEY = 'conecta_pindai_favs_v2';
+    const USER_VOTES_KEY = 'conecta_pindai_user_votes_v2';
+
+    let appData = loadAppData();
+    let favorites = loadFavorites();
+    let userVotes = loadUserVotes();
+    let selectedCategory = 'Todos';
+    let searchQuery = '';
+    let activeTab = 'home';
+    let currentModalStoreId = null;
+    let currentUploadedBase64 = '';
+
+    function loadAppData() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && Array.isArray(parsed.stores)) return parsed;
+        }
+      } catch (e) {
+        console.warn('Erro ao ler localStorage:', e);
+      }
+      return JSON.parse(JSON.stringify(INITIAL_DATA));
+    }
+
+    function saveAppData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+      } catch (e) {
+        showToast('Armazenamento cheio. Exporte o .html atualizado!', '⚠️');
+      }
+    }
+
+    function loadFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem(FAV_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveFavorites() {
+      localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
+      updateFavBadge();
+    }
+
+    function loadUserVotes() {
+      try {
+        return JSON.parse(localStorage.getItem(USER_VOTES_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveUserVotes() {
+      localStorage.setItem(USER_VOTES_KEY, JSON.stringify(userVotes));
+    }
+
+    /* ==========================================================================
+       === LÓGICA DE HORÁRIO COMERCIAL AUTOMÁTICO (08:00 ÀS 18:00) ===
+       ========================================================================== */
+    function checkStoreOpenStatus(hoursStr) {
+      const text = (hoursStr || '08:00 às 18:00').trim();
+      const match = text.match(/(\d{1,2}):(\d{2})\s*(?:às|as|-|a)\s*(\d{1,2}):(\d{2})/i);
+
+      let startH = 8, startM = 0, endH = 18, endM = 0;
+      if (match) {
+        startH = parseInt(match[1], 10);
+        startM = parseInt(match[2], 10);
+        endH = parseInt(match[3], 10);
+        endM = parseInt(match[4], 10);
+      }
+
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const startMinutes = startH * 60 + startM;
+      const endMinutes = endH * 60 + endM; // 18:00 = 1080 min; até 17:59 (1079) fica aberto
+
+      const pad = n => String(n).padStart(2, '0');
+      const openFormatted = `${pad(startH)}:${pad(startM)}`;
+      const closeFormatted = `${pad(endH)}:${pad(endM)}`;
+      const rangeLabel = `${openFormatted} às ${closeFormatted}`;
+
+      const isOpen = currentMinutes >= startMinutes && currentMinutes < endMinutes;
+
+      return {
+        isOpen,
+        rangeLabel,
+        badgeText: isOpen
+          ? `● Aberto agora (${rangeLabel})`
+          : `● Fechado agora (Abre às ${openFormatted})`
+      };
+    }
+
+    /* ==========================================================================
+       === CÁLCULO DE MÉDIA DE ESTRELAS (0 A 5) ===
+       ========================================================================== */
+    function getStoreRatingInfo(store) {
+      const count = Number(store.ratingCount) || 1;
+      const sum = Number(store.ratingSum) !== undefined && !isNaN(Number(store.ratingSum))
+        ? Number(store.ratingSum)
+        : 5.0;
+      const avg = Math.min(5, Math.max(0, sum / count));
+      return {
+        avgFormatted: avg.toFixed(1),
+        count
+      };
+    }
+
+    function rateStore(stars) {
+      if (!currentModalStoreId) return;
+      const store = appData.stores.find(s => s.id === currentModalStoreId);
+      if (!store) return;
+
+      const numericStars = Math.min(5, Math.max(0, Number(stars)));
+      const previousVote = userVotes[store.id];
+
+      if (previousVote !== undefined) {
+        // Atualiza o voto anterior do mesmo usuário sem duplicar contagem
+        store.ratingSum = (Number(store.ratingSum) || 0) - Number(previousVote) + numericStars;
+      } else {
+        store.ratingSum = (Number(store.ratingSum) || 0) + numericStars;
+        store.ratingCount = (Number(store.ratingCount) || 0) + 1;
+      }
+
+      userVotes[store.id] = numericStars;
+      saveUserVotes();
+      saveAppData();
+
+      // Atualiza visual do modal e dos cards na vitrine
+      updateModalRatingUI(store);
+      renderStores();
+      showToast('Obrigado pela sua avaliação!', '⭐');
+    }
+
+    function updateModalRatingUI(store) {
+      const rInfo = getStoreRatingInfo(store);
+      document.getElementById('catalogRatingBadge').textContent = `★ ${rInfo.avgFormatted} (${rInfo.count})`;
+
+      const userChoice = userVotes[store.id];
+      const feedbackEl = document.getElementById('ratingFeedbackText');
+      if (userChoice !== undefined) {
+        feedbackEl.innerHTML = `<span class="text-emerald-400 font-bold">✓ Obrigado pela sua avaliação! Você deu ${userChoice} ${userChoice === 1 ? 'estrela' : 'estrelas'}.</span>`;
+      } else {
+        feedbackEl.textContent = 'Toque em uma nota abaixo para avaliar';
+      }
+
+      // Destaca botão da nota selecionada pelo usuário
+      document.querySelectorAll('.rating-opt').forEach((btn, idx) => {
+        if (userChoice === idx) {
+          btn.classList.add('bg-[#FACC15]', 'text-[#0B1120]', 'border-[#FACC15]');
+          btn.classList.remove('bg-[#151E32]', 'text-slate-300', 'text-[#FACC15]');
+        } else {
+          btn.classList.remove('bg-[#FACC15]', 'text-[#0B1120]', 'border-[#FACC15]');
+          btn.classList.add('bg-[#151E32]', idx === 0 ? 'text-slate-300' : 'text-[#FACC15]');
+        }
+      });
+    }
+
+    /* ==========================================================================
+       === RENDERIZAÇÃO DA VITRINE, BUSCA E CATEGORIAS ===
+       ========================================================================== */
+    function initApp() {
+      applySettingsToUI();
+      renderCategories();
+      renderStores();
+      updateFavBadge();
+
+      // Atualiza status aberto/fechado automaticamente a cada minuto
+      setInterval(() => {
+        renderStores();
+      }, 60000);
+    }
+
+    function applySettingsToUI() {
+      const s = appData.settings;
+      const parts = s.title.split(' ');
+      if (parts.length > 1) {
+        const last = parts.pop();
+        document.getElementById('headerTitle').innerHTML = `${parts.join(' ')} <span class="text-[#F87171]">${last}</span>`;
+      } else {
+        document.getElementById('headerTitle').textContent = s.title;
+      }
+      document.getElementById('headerSubtitle').textContent = s.subtitle;
+      document.getElementById('heroCityBadge').textContent = s.city;
+      document.getElementById('storeCountBadge').textContent = `${appData.stores.length} lojas`;
+    }
+
+    function renderCategories() {
+      const carousel = document.getElementById('categoryCarousel');
+      const grid = document.getElementById('allCategoriesGrid');
+
+      carousel.innerHTML = CATEGORIES.map(cat => {
+        const isActive = selectedCategory === cat.id;
+        return `
+          <button
+            onclick="selectCategory('${cat.id}')"
+            class="shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all border ${
+              isActive
+                ? 'bg-[#4F6EF7] text-white border-[#4F6EF7] shadow-md shadow-[#4F6EF7]/30'
+                : 'bg-[#151E32] text-slate-200 border-white/10 hover:bg-[#1E293B]'
+            }"
+          >
+            <span>${cat.icon}</span>
+            <span>${cat.label}</span>
+          </button>
+        `;
+      }).join('');
+
+      grid.innerHTML = CATEGORIES.map(cat => {
+        const isActive = selectedCategory === cat.id;
+        const count = cat.id === 'Todos'
+          ? appData.stores.length
+          : appData.stores.filter(s => s.category === cat.id).length;
+
+        return `
+          <button
+            onclick="selectCategory('${cat.id}'); toggleAllCategories(false);"
+            class="p-2.5 rounded-xl text-left flex items-center justify-between text-xs font-bold border transition-all ${
+              isActive
+                ? 'bg-[#4F6EF7] text-white border-[#4F6EF7]'
+                : 'bg-[#0B1120] text-slate-200 border-white/5 hover:border-white/20'
+            }"
+          >
+            <span class="flex items-center gap-1.5"><span>${cat.icon}</span> ${cat.label}</span>
+            <span class="text-[10px] opacity-75">(${count})</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(catId) {
+      selectedCategory = catId;
+      if (activeTab === 'favorites') switchTab('home');
+      renderCategories();
+      renderStores();
+    }
+
+    function scrollCategories(amount) {
+      document.getElementById('categoryCarousel').scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    function toggleAllCategories(forceState) {
+      const grid = document.getElementById('allCategoriesGrid');
+      const txt = document.getElementById('toggleCatText');
+      const isHidden = grid.classList.contains('hidden');
+      const shouldShow = typeof forceState === 'boolean' ? forceState : isHidden;
+
+      if (shouldShow) {
+        grid.classList.remove('hidden');
+        grid.classList.add('grid');
+        txt.textContent = 'Ocultar categorias';
+      } else {
+        grid.classList.add('hidden');
+        grid.classList.remove('grid');
+        txt.textContent = 'Ver todas as categorias';
+      }
+    }
+
+    function handleSearch() {
+      const input = document.getElementById('searchInput');
+      searchQuery = input.value.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (searchQuery.length > 0) {
+        clearBtn.classList.remove('hidden');
+        clearBtn.classList.add('flex');
+      } else {
+        clearBtn.classList.add('hidden');
+        clearBtn.classList.remove('flex');
+      }
+      renderStores();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      searchQuery = '';
+      handleSearch();
+    }
+
+    function resetFilters() {
+      selectedCategory = 'Todos';
+      activeTab = 'home';
+      clearSearch();
+      renderCategories();
+      renderStores();
+    }
+
+    function renderStores() {
+      const grid = document.getElementById('storesGrid');
+      const emptyState = document.getElementById('emptyState');
+      const filteredCountEl = document.getElementById('filteredCount');
+
+      let list = [...appData.stores].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+      if (activeTab === 'favorites') {
+        list = list.filter(s => favorites.includes(s.id));
+      } else if (selectedCategory !== 'Todos') {
+        list = list.filter(s => s.category === selectedCategory);
+      }
+
+      if (searchQuery) {
+        list = list.filter(s => {
+          const matchName = s.name.toLowerCase().includes(searchQuery);
+          const matchCat = s.category.toLowerCase().includes(searchQuery);
+          const matchDesc = (s.description || '').toLowerCase().includes(searchQuery);
+          const matchProd = (s.products || []).some(p =>
+            p.name.toLowerCase().includes(searchQuery) || (p.desc || '').toLowerCase().includes(searchQuery)
+          );
+          return matchName || matchCat || matchDesc || matchProd;
+        });
+      }
+
+      filteredCountEl.textContent = `${list.length} ${list.length === 1 ? 'encontrado' : 'encontrados'}`;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = list.map(store => {
+        const isFav = favorites.includes(store.id);
+        const topProducts = (store.products || []).slice(0, 2);
+        const statusInfo = checkStoreOpenStatus(store.hours);
+        const ratingInfo = getStoreRatingInfo(store);
+        const fallbackImg = makeStoreSVG('#1E293B', '#334155', '🏪', store.name.toUpperCase());
+
+        return `
+          <article class="bg-[#151E32] hover:bg-[#19243C] border ${store.featured ? 'border-[#FACC15]/40' : 'border-white/10'} rounded-3xl overflow-hidden flex flex-col justify-between shadow-lg transition-all animate-fade">
+            <div>
+              <!-- Capa da Loja -->
+              <div class="relative h-40 bg-slate-900 overflow-hidden cursor-pointer" onclick="openStoreCatalog(${store.id})">
+                <img
+                  src="${store.image || fallbackImg}"
+                  onerror="this.src='${fallbackImg}'"
+                  alt="${store.name}"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#151E32] via-transparent to-black/30"></div>
+
+                <!-- Badges Superiores: Categoria + Estrelas -->
+                <div class="absolute top-3 left-3 flex flex-wrap items-center gap-1.5">
+                  <span class="bg-[#0B1120]/85 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/10">
+                    ${store.category}
+                  </span>
+                  <span class="bg-[#0B1120]/85 backdrop-blur-md text-[#FACC15] text-[10px] font-extrabold px-2 py-1 rounded-full border border-[#FACC15]/30">
+                    ★ ${ratingInfo.avgFormatted} (${ratingInfo.count})
+                  </span>
+                  ${store.featured ? `<span class="bg-[#FACC15] text-[#0B1120] text-[10px] font-black px-2 py-0.5 rounded-full">Destaque</span>` : ''}
+                </div>
+
+                <!-- Botão Favoritar -->
+                <button
+                  onclick="event.stopPropagation(); toggleFavorite(${store.id})"
+                  aria-label="Favoritar"
+                  class="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#0B1120]/80 backdrop-blur-md flex items-center justify-center border border-white/10 transition-transform active:scale-90"
+                >
+                  <span class="text-sm">${isFav ? '❤️' : '🤍'}</span>
+                </button>
+
+                <!-- Selo Automático Aberto/Fechado (08:00 às 18:00) -->
+                <div class="absolute bottom-2.5 left-3 right-3">
+                  <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-md backdrop-blur-md ${
+                    statusInfo.isOpen
+                      ? 'bg-emerald-950/85 text-emerald-300 border border-emerald-500/40'
+                      : 'bg-rose-950/85 text-rose-300 border border-rose-500/40'
+                  }">
+                    ${statusInfo.badgeText}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Corpo do Card -->
+              <div class="p-4 pb-2">
+                <h4 onclick="openStoreCatalog(${store.id})" class="text-base font-extrabold text-white hover:text-[#4F6EF7] cursor-pointer leading-snug mb-1">
+                  ${store.name}
+                </h4>
+                <p class="text-xs text-slate-400 line-clamp-2 mb-3">
+                  ${store.description || 'Confira nossas ofertas e atendimento em Pindaí.'}
+                </p>
+
+                <!-- Destaques de Preços -->
+                ${topProducts.length > 0 ? `
+                  <div class="bg-[#0B1120]/80 rounded-2xl p-2.5 border border-white/5 space-y-1.5 mb-3">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Destaques & Preços</div>
+                    ${topProducts.map(p => `
+                      <div class="flex items-center justify-between gap-2 text-xs">
+                        <span class="text-slate-200 truncate">${p.name}</span>
+                        <span class="font-extrabold text-[#FACC15] shrink-0">${p.price}</span>
+                      </div>
+                    `).join('')}
+                  </div>
+                ` : ''}
+
+                <div class="text-[11px] text-slate-400 flex items-center gap-1 truncate mb-2">
+                  <span>📍</span> <span class="truncate">${store.address || 'Pindaí - BA'}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="p-4 pt-2 flex items-center gap-2">
+              <button
+                onclick="openStoreCatalog(${store.id})"
+                class="flex-1 bg-[#0B1120] hover:bg-slate-900 border border-white/10 text-slate-200 text-xs font-bold py-2.5 px-3 rounded-xl transition-colors"
+              >
+                Preços & Avaliar
+              </button>
+              <a
+                href="${buildWhatsAppLink(store.whatsapp, `Olá *${store.name}*! Vi vocês no *Conecta Pindaí* e gostaria de mais informações.`)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow transition-colors"
+              >
+                <span>💬 WhatsApp</span>
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function buildWhatsAppLink(phone, text) {
+      const cleanPhone = String(phone || appData.settings.whatsapp).replace(/\D/g, '');
+      const fullPhone = cleanPhone.startsWith('55') ? cleanPhone : `55${cleanPhone}`;
+      return `https://wa.me/${fullPhone}?text=${encodeURIComponent(text)}`;
+    }
+
+    function contactCentral() {
+      const url = buildWhatsAppLink(
+        appData.settings.whatsapp,
+        'Olá! Estou acessando o *Conecta Pindaí* (Rádio Pindaí FM 88.9) e gostaria de falar com vocês.'
+      );
+      window.open(url, '_blank');
+    }
+
+    /* ==========================================================================
+       === FAVORITOS E NAVEGAÇÃO INFERIOR ===
+       ========================================================================== */
+    function toggleFavorite(storeId) {
+      const idx = favorites.indexOf(storeId);
+      if (idx > -1) {
+        favorites.splice(idx, 1);
+        showToast('Removido dos favoritos', '💔');
+      } else {
+        favorites.push(storeId);
+        showToast('Salvo nos seus favoritos!', '❤️');
+      }
+      saveFavorites();
+      renderStores();
+
+      if (currentModalStoreId === storeId) {
+        const favBtn = document.getElementById('catalogFavBtn');
+        if (favBtn) favBtn.textContent = favorites.includes(storeId) ? '❤️' : '🤍';
+      }
+    }
+
+    function updateFavBadge() {
+      const badge = document.getElementById('favBadgeCount');
+      if (favorites.length > 0) {
+        badge.textContent = favorites.length;
+        badge.classList.remove('hidden');
+        badge.classList.add('flex');
+      } else {
+        badge.classList.add('hidden');
+        badge.classList.remove('flex');
+      }
+    }
+
+    function switchTab(tab) {
+      activeTab = tab;
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-[#4F6EF7]', 'font-bold');
+        btn.classList.add('text-slate-400', 'font-medium');
+      });
+
+      const activeBtn = document.getElementById(`nav-${tab}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400', 'font-medium');
+        activeBtn.classList.add('text-[#4F6EF7]', 'font-bold');
+      }
+
+      const heading = document.getElementById('sectionHeading');
+      const sub = document.getElementById('sectionSubheading');
+      const hero = document.getElementById('heroBanner');
+
+      if (tab === 'favorites') {
+        heading.innerHTML = '<span>❤️ Minhas Lojas Favoritas</span>';
+        sub.textContent = 'Suas lojas salvas neste aparelho';
+        hero.classList.add('hidden');
+      } else {
+        heading.innerHTML = '<span>🏪 Lojas e Serviços em Pindaí</span>';
+        sub.textContent = 'Horário comercial padrão: 08:00 às 18:00 • Toque para ver preços e avaliar';
+        hero.classList.remove('hidden');
+      }
+
+      renderStores();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ==========================================================================
+       === MODAL DE DETALHES DA LOJA ===
+       ========================================================================== */
+    function openStoreCatalog(storeId) {
+      const store = appData.stores.find(s => s.id === storeId);
+      if (!store) return;
+
+      currentModalStoreId = store.id;
+
+      const fallbackImg = makeStoreSVG('#1E293B', '#334155', '🏪', store.name.toUpperCase());
+      document.getElementById('catalogCover').src = store.image || fallbackImg;
+      document.getElementById('catalogCatBadge').textContent = store.category;
+      document.getElementById('catalogStoreName').textContent = store.name;
+      document.getElementById('catalogDesc').textContent = store.description || '';
+      document.getElementById('catalogAddress').textContent = store.address || 'Pindaí - BA';
+      document.getElementById('catalogHours').textContent = store.hours || '08:00 às 18:00';
+
+      const favBtn = document.getElementById('catalogFavBtn');
+      favBtn.textContent = favorites.includes(store.id) ? '❤️' : '🤍';
+      favBtn.onclick = () => toggleFavorite(store.id);
+
+      // Status Aberto / Fechado Automático
+      const statusInfo = checkStoreOpenStatus(store.hours);
+      const statusBanner = document.getElementById('catalogStatusBanner');
+      statusBanner.textContent = statusInfo.badgeText;
+      statusBanner.className = statusInfo.isOpen
+        ? 'px-3.5 py-2.5 rounded-2xl text-xs font-bold flex items-center justify-between bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
+        : 'px-3.5 py-2.5 rounded-2xl text-xs font-bold flex items-center justify-between bg-rose-500/15 text-rose-300 border border-rose-500/30';
+
+      // Atualiza seção de avaliação 0 a 5 estrelas
+      updateModalRatingUI(store);
+
+      const prodList = document.getElementById('catalogProductsList');
+      if (!store.products || store.products.length === 0) {
+        prodList.innerHTML = `<p class="text-xs text-slate-400 bg-[#0B1120] p-3 rounded-xl">Nenhum item cadastrado ainda. Chame no WhatsApp para consultar!</p>`;
+      } else {
+        prodList.innerHTML = store.products.map(p => `
+          <div class="bg-[#0B1120] border border-white/5 p-3 rounded-2xl flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold text-white">${p.name}</div>
+              ${p.desc ? `<div class="text-[11px] text-slate-400">${p.desc}</div>` : ''}
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-black text-[#FACC15]">${p.price}</div>
+              <a
+                href="${buildWhatsAppLink(store.whatsapp, `Olá *${store.name}*! Vi no *Conecta Pindaí* o item: *${p.name}* (${p.price}) e gostaria de pedir.`)}"
+                target="_blank"
+                class="inline-block mt-1 text-[10px] font-bold text-emerald-400 hover:underline"
+              >
+                Pedir item →
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('catalogWhatsappBtn').onclick = () => {
+        window.open(
+          buildWhatsAppLink(store.whatsapp, `Olá *${store.name}*! Vi o perfil de vocês no *Conecta Pindaí*.`),
+          '_blank'
+        );
+      };
+
+      document.getElementById('storeCatalogModal').classList.remove('hidden');
+    }
+
+    function openInstallModal() {
+      document.getElementById('installModal').classList.remove('hidden');
+    }
+
+    function openHowItWorksModal() {
+      document.getElementById('howItWorksModal').classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      if (id === 'storeCatalogModal') currentModalStoreId = null;
+    }
+
+    function showToast(msg, icon = '✅') {
+      const box = document.getElementById('toastBox');
+      document.getElementById('toastMsg').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      box.classList.remove('hidden');
+      box.classList.add('flex');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        box.classList.add('hidden');
+        box.classList.remove('flex');
+      }, 3200);
+    }
+
+    /* ==========================================================================
+       === PAINEL ADMINISTRATIVO COMPLETO ===
+       ========================================================================== */
+    function openAdminAccess() {
+      document.getElementById('adminPasswordInput').value = '';
+      document.getElementById('adminLoginModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('adminPasswordInput').focus(), 100);
+    }
+
+    function verifyAdminLogin() {
+      const typed = document.getElementById('adminPasswordInput').value;
+      if (typed === appData.settings.adminPassword) {
+        closeModal('adminLoginModal');
+        openAdminPanel();
+      } else {
+        showToast('Senha incorreta! Tente novamente.', '❌');
+      }
+    }
+
+    function openAdminPanel() {
+      const catSelect = document.getElementById('pCategory');
+      catSelect.innerHTML = CATEGORIES.filter(c => c.id !== 'Todos')
+        .map(c => `<option value="${c.id}">${c.icon} ${c.label}</option>`)
+        .join('');
+
+      document.getElementById('cfgTitle').value = appData.settings.title;
+      document.getElementById('cfgSubtitle').value = appData.settings.subtitle;
+      document.getElementById('cfgCity').value = appData.settings.city;
+      document.getElementById('cfgWhatsapp').value = appData.settings.whatsapp;
+      document.getElementById('cfgPassword').value = appData.settings.adminPassword;
+
+      resetPartnerForm();
+      renderAdminStoresList();
+      document.getElementById('adminPanelModal').classList.remove('hidden');
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminPanelModal').classList.add('hidden');
+      applySettingsToUI();
+      renderCategories();
+      renderStores();
+    }
+
+    function switchAdminSubtab(sub) {
+      ['partners', 'settings', 'backup'].forEach(name => {
+        document.getElementById(`adminSub-${name}`).classList.add('hidden');
+        const tabBtn = document.getElementById(`adminTab-${name}`);
+        tabBtn.classList.remove('bg-[#4F6EF7]', 'text-white');
+        tabBtn.classList.add('bg-[#151E32]', 'text-slate-300');
+      });
+
+      document.getElementById(`adminSub-${sub}`).classList.remove('hidden');
+      const activeTabBtn = document.getElementById(`adminTab-${sub}`);
+      activeTabBtn.classList.remove('bg-[#151E32]', 'text-slate-300');
+      activeTabBtn.classList.add('bg-[#4F6EF7]', 'text-white');
+    }
+
+    // Compressão automática de imagem via Canvas (máx. 400px e JPEG qualidade 0.75)
+    function handlePartnerImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 400;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > MAX_WIDTH) {
+            height = Math.round((height * MAX_WIDTH) / width);
+            width = MAX_WIDTH;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
+          currentUploadedBase64 = compressedBase64;
+          document.getElementById('pImageUrl').value = '';
+          previewPartnerImage(compressedBase64);
+          showToast('Imagem comprimida (400px) e pronta!', '🖼️');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function previewPartnerImage(src) {
+      const box = document.getElementById('pImagePreviewBox');
+      const img = document.getElementById('pImagePreview');
+      if (src) {
+        img.src = src;
+        box.classList.remove('hidden');
+      } else {
+        box.classList.add('hidden');
+      }
+    }
+
+    function addProductRow(name = '', price = '', desc = '') {
+      const container = document.getElementById('partnerProductsEditor');
+      const row = document.createElement('div');
+      row.className = 'product-row grid grid-cols-1 sm:grid-cols-12 gap-2 bg-[#151E32] p-2.5 rounded-xl border border-white/5 items-center';
+      row.innerHTML = `
+        <input type="text" placeholder="Nome do produto/serviço" value="${name}" class="prod-name sm:col-span-5 bg-[#0B1120] border border-white/10 rounded-lg px-2.5 py-2 text-xs text-white outline-none" />
+        <input type="text" placeholder="Preço (Ex: R$ 25,00)" value="${price}" class="prod-price sm:col-span-3 bg-[#0B1120] border border-white/10 rounded-lg px-2.5 py-2 text-xs text-[#FACC15] font-bold outline-none" />
+        <input type="text" placeholder="Detalhes curtos (opcional)" value="${desc}" class="prod-desc sm:col-span-3 bg-[#0B1120] border border-white/10 rounded-lg px-2.5 py-2 text-xs text-slate-300 outline-none" />
+        <button type="button" onclick="this.parentElement.remove()" class="sm:col-span-1 bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 text-xs font-bold py-2 rounded-lg">
+          🗑️
+        </button>
+      `;
+      container.appendChild(row);
+    }
+
+    function resetPartnerForm() {
+      document.getElementById('editPartnerId').value = '';
+      document.getElementById('formPartnerTitle').textContent = '➕ Cadastrar Novo Parceiro';
+      document.getElementById('cancelEditPartnerBtn').classList.add('hidden');
+
+      document.getElementById('pName').value = '';
+      document.getElementById('pCategory').value = 'Comida';
+      document.getElementById('pWhatsapp').value = appData.settings.whatsapp;
+      document.getElementById('pHours').value = '08:00 às 18:00';
+      document.getElementById('pRating').value = '5.0';
+      document.getElementById('pVotes').value = '1';
+      document.getElementById('pAddress').value = '';
+      document.getElementById('pDesc').value = '';
+      document.getElementById('pImageUrl').value = '';
+      document.getElementById('pImageFile').value = '';
+      document.getElementById('pFeatured').checked = false;
+      currentUploadedBase64 = '';
+      previewPartnerImage('');
+
+      const prodContainer = document.getElementById('partnerProductsEditor');
+      prodContainer.innerHTML = '';
+      addProductRow();
+    }
+
+    function savePartner() {
+      const name = document.getElementById('pName').value.trim();
+      const category = document.getElementById('pCategory').value;
+      const whatsapp = document.getElementById('pWhatsapp').value.trim();
+
+      if (!name) {
+        showToast('Digite o nome da loja!', '⚠️');
+        return;
+      }
+
+      const products = [];
+      document.querySelectorAll('#partnerProductsEditor .product-row').forEach(row => {
+        const pName = row.querySelector('.prod-name').value.trim();
+        const pPrice = row.querySelector('.prod-price').value.trim();
+        const pDesc = row.querySelector('.prod-desc').value.trim();
+        if (pName) {
+          products.push({ name: pName, price: pPrice || 'Consulte', desc: pDesc });
+        }
+      });
+
+      const urlInput = document.getElementById('pImageUrl').value.trim();
+      const finalImage = currentUploadedBase64 || urlInput || makeStoreSVG('#1E3A8A', '#3B82F6', '🏪', name.toUpperCase());
+
+      const ratingAvg = Math.min(5, Math.max(0, parseFloat(document.getElementById('pRating').value) || 5.0));
+      const ratingVotes = Math.max(1, parseInt(document.getElementById('pVotes').value, 10) || 1);
+
+      const editId = document.getElementById('editPartnerId').value;
+      const storePayload = {
+        id: editId ? Number(editId) : Date.now(),
+        name,
+        category,
+        whatsapp: whatsapp || appData.settings.whatsapp,
+        hours: document.getElementById('pHours').value.trim() || '08:00 às 18:00',
+        address: document.getElementById('pAddress').value.trim(),
+        description: document.getElementById('pDesc').value.trim(),
+        image: finalImage,
+        featured: document.getElementById('pFeatured').checked,
+        ratingSum: Number((ratingAvg * ratingVotes).toFixed(2)),
+        ratingCount: ratingVotes,
+        products
+      };
+
+      if (editId) {
+        const index = appData.stores.findIndex(s => s.id === Number(editId));
+        if (index > -1) appData.stores[index] = storePayload;
+        showToast('Parceiro atualizado com sucesso!', '✅');
+      } else {
+        appData.stores.unshift(storePayload);
+        showToast('Novo parceiro adicionado!', '🎉');
+      }
+
+      saveAppData();
+      resetPartnerForm();
+      renderAdminStoresList();
+    }
+
+    function editPartner(storeId) {
+      const store = appData.stores.find(s => s.id === storeId);
+      if (!store) return;
+
+      const rInfo = getStoreRatingInfo(store);
+
+      document.getElementById('editPartnerId').value = store.id;
+      document.getElementById('formPartnerTitle').textContent = `✏️ Editando: ${store.name}`;
+      document.getElementById('cancelEditPartnerBtn').classList.remove('hidden');
+
+      document.getElementById('pName').value = store.name;
+      document.getElementById('pCategory').value = store.category;
+      document.getElementById('pWhatsapp').value = store.whatsapp || '';
+      document.getElementById('pHours').value = store.hours || '08:00 às 18:00';
+      document.getElementById('pRating').value = rInfo.avgFormatted;
+      document.getElementById('pVotes').value = rInfo.count;
+      document.getElementById('pAddress').value = store.address || '';
+      document.getElementById('pDesc').value = store.description || '';
+      document.getElementById('pFeatured').checked = Boolean(store.featured);
+
+      if (store.image && store.image.startsWith('data:image')) {
+        currentUploadedBase64 = store.image;
+        document.getElementById('pImageUrl').value = '';
+      } else {
+        currentUploadedBase64 = '';
+        document.getElementById('pImageUrl').value = store.image || '';
+      }
+      previewPartnerImage(store.image);
+
+      const prodContainer = document.getElementById('partnerProductsEditor');
+      prodContainer.innerHTML = '';
+      if (store.products && store.products.length > 0) {
+        store.products.forEach(p => addProductRow(p.name, p.price, p.desc || ''));
+      } else {
+        addProductRow();
+      }
+
+      document.getElementById('adminPanelModal').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function deletePartner(storeId) {
+      appData.stores = appData.stores.filter(s => s.id !== storeId);
+      saveAppData();
+      renderAdminStoresList();
+      showToast('Parceiro removido!', '🗑️');
+    }
+
+    function renderAdminStoresList() {
+      const container = document.getElementById('adminStoresList');
+      document.getElementById('adminStoreTotal').textContent = appData.stores.length;
+
+      container.innerHTML = appData.stores.map(store => {
+        const rInfo = getStoreRatingInfo(store);
+        return `
+          <div class="bg-[#0B1120] border border-white/10 rounded-2xl p-3 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="${store.image}" alt="${store.name}" class="w-14 h-14 rounded-xl object-cover shrink-0 bg-slate-800" />
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-xs font-extrabold text-white truncate">${store.name}</span>
+                  ${store.featured ? '<span class="text-[10px] text-[#FACC15]">⭐</span>' : ''}
+                </div>
+                <div class="text-[11px] text-slate-400">
+                  ${store.category} • ★ ${rInfo.avgFormatted} (${rInfo.count}) • ${(store.products || []).length} itens
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="editPartner(${store.id})" class="bg-[#4F6EF7]/20 hover:bg-[#4F6EF7]/35 text-blue-300 text-xs font-bold px-3 py-2 rounded-xl">
+                ✏️ Editar
+              </button>
+              <button onclick="deletePartner(${store.id})" class="bg-rose-500/20 hover:bg-rose-500/35 text-rose-300 text-xs font-bold px-2.5 py-2 rounded-xl">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveSettings() {
+      appData.settings.title = document.getElementById('cfgTitle').value.trim() || 'Conecta Pindaí';
+      appData.settings.subtitle = document.getElementById('cfgSubtitle').value.trim() || 'Tudo de Pindaí em um só lugar';
+      appData.settings.city = document.getElementById('cfgCity').value.trim() || 'Pindaí • Bahia';
+      appData.settings.whatsapp = document.getElementById('cfgWhatsapp').value.trim() || '5577991571909';
+      const newPass = document.getElementById('cfgPassword').value.trim();
+      if (newPass) appData.settings.adminPassword = newPass;
+
+      saveAppData();
+      applySettingsToUI();
+      showToast('Configurações salvas!', '⚙️');
+    }
+
+    /* ==========================================================================
+       === EXPORTAÇÃO DE BACKUP JSON E DOWNLOAD DO HTML ATUALIZADO ===
+       ========================================================================== */
+    function exportJSON() {
+      const blob = new Blob([JSON.stringify(appData, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `backup-conecta-pindai-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      showToast('Backup JSON baixado!', '📥');
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported && Array.isArray(imported.stores)) {
+            appData = imported;
+            saveAppData();
+            renderAdminStoresList();
+            showToast('Backup restaurado com sucesso!', '✅');
+          } else {
+            showToast('Arquivo JSON inválido.', '❌');
+          }
+        } catch (err) {
+          showToast('Erro ao ler arquivo JSON.', '❌');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetToFactoryDefaults() {
+      appData = JSON.parse(JSON.stringify(INITIAL_DATA));
+      saveAppData();
+      renderAdminStoresList();
+      showToast('Dados originais restaurados!', '🔄');
+    }
+
+    function downloadUpdatedHTML() {
+      try {
+        let fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+        const markerStart = '/* DEFAULT_DATA_START */';
+        const markerEnd = '/* DEFAULT_DATA_END */';
+        const startIdx = fullHtml.indexOf(markerStart);
+        const endIdx = fullHtml.indexOf(markerEnd);
+
+        if (startIdx !== -1 && endIdx !== -1) {
+          const newDataBlock = `${markerStart}\n    const INITIAL_DATA = ${JSON.stringify(appData, null, 2)};\n    ${markerEnd}`;
+          fullHtml = fullHtml.slice(0, startIdx) + newDataBlock + fullHtml.slice(endIdx + markerEnd.length);
+        }
+
+        fullHtml = fullHtml.replace('id="adminPanelModal" class="fixed', 'id="adminPanelModal" class="hidden fixed');
+
+        const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'index.html';
+        link.click();
+        showToast('Arquivo index.html atualizado baixado!', '💾');
+      } catch (err) {
+        showToast('Erro ao gerar HTML. Tente exportar JSON.', '❌');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
